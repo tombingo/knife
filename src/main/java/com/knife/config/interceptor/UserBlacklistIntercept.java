@@ -1,6 +1,5 @@
 package com.knife.config.interceptor;
 
-import lombok.Data;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
@@ -11,5 +10,5 @@ import org.springframework.web.servlet.HandlerInterceptor;
  * @Version 1.0
  */
 @Component
-public class LimitUserIntercept implements HandlerInterceptor {
+public class UserBlacklistIntercept implements HandlerInterceptor {
 }

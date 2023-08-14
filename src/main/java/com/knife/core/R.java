@@ -1,5 +1,7 @@
 package com.knife.core;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -7,56 +9,43 @@ import java.io.Serializable;
  * @author 86151
  *
  */
+@Data
 public class R<T> implements Serializable {
     private static final long serialVersionUID = -3524059004688026872L;
 
     /**
-     * @Description: 返回的错误码
+     * 请求Id
+     */
+    private String requestId;
+
+    /**
+     * 返回的错误码
      */
     private Object code;
 
     /**
-     * @Description: 返回的错误信息
+     * 返回的错误信息
      */
     private String msg;
 
     /**
-     * @Description: 返回体报文的出参，使用泛型兼容不同的类型
+     * 返回体报文的出参，使用泛型兼容不同的类型
      */
     private T data;
 
+    public R() {
+        AccessMeta accessMeta = AccessContext.getAccessMeta();
+        this.requestId = accessMeta.getRequestId();
+    }
+
     public R(Object code, String msg) {
+        this();
         this.code = code;
         this.msg = msg;
     }
 
     public R(Object code, String msg, T data) {
-        this.code = code;
-        this.msg = msg;
-        this.data = data;
-    }
-
-    public Object getCode() {
-        return code;
-    }
-
-    public void setCode(Object code) {
-        this.code = code;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public Object getData() {
-        return data;
-    }
-
-    public void setData(T data) {
+        this(code, msg);
         this.data = data;
     }
 

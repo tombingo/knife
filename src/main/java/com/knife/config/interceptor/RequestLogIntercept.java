@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -84,7 +85,14 @@ public class RequestLogIntercept implements HandlerInterceptor {
          */
         record.put(RequestLogArgsEnum.url,request.getRequestURI());
         record.put(RequestLogArgsEnum.urlParams,request.getQueryString());
+        /**
+         * 创建时间
+         */
+        record.put(RequestLogArgsEnum.createTime, LocalDateTime.now());
         log.info(JSONObject.toJSONString(record));
+        /**
+         * 移除变量
+         */
         requestLogContext.remove();
 
     }

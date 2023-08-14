@@ -24,17 +24,19 @@ import java.util.List;
 public class WebMvcConfig implements WebMvcConfigurer {
 
     private RequestLogIntercept requestLogIntercept;
-    private LimitIpIntercept limitIpIntercept;
+    private IpBlacklistIntercept ipBlacklistIntercept;
     private AuthenticateIntercept authenticateIntercept;
-    private LimitUserIntercept limitUserIntercept;
+    private UserBlacklistIntercept userBlacklistIntercept;
     private VerifyPermissionIntercept verifyPermissionIntercept;
+    private QpsIntercept qpsIntercept;
     @Autowired
-    public WebMvcConfig(RequestLogIntercept requestLogIntercept, LimitIpIntercept limitIpIntercept, AuthenticateIntercept authenticateIntercept, LimitUserIntercept limitUserIntercept, VerifyPermissionIntercept verifyPermissionIntercept) {
+    public WebMvcConfig(RequestLogIntercept requestLogIntercept, IpBlacklistIntercept ipBlacklistIntercept, AuthenticateIntercept authenticateIntercept, UserBlacklistIntercept userBlacklistIntercept, VerifyPermissionIntercept verifyPermissionIntercept, QpsIntercept qpsIntercept) {
         this.requestLogIntercept = requestLogIntercept;
-        this.limitIpIntercept = limitIpIntercept;
+        this.ipBlacklistIntercept = ipBlacklistIntercept;
         this.authenticateIntercept = authenticateIntercept;
-        this.limitUserIntercept = limitUserIntercept;
+        this.userBlacklistIntercept = userBlacklistIntercept;
         this.verifyPermissionIntercept = verifyPermissionIntercept;
+        this.qpsIntercept = qpsIntercept;
     }
 
     @Override
@@ -57,25 +59,30 @@ public class WebMvcConfig implements WebMvcConfigurer {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+        int order = 0;
         registry.addInterceptor(requestLogIntercept)
                 .addPathPatterns("/**")
-                .order(0);
+                .order(order);
 
-        registry.addInterceptor(limitIpIntercept)
+        registry.addInterceptor(qpsIntercept)
                 .addPathPatterns("/**")
-                .order(1);
+                .order(++order);
+
+        registry.addInterceptor(ipBlacklistIntercept)
+                .addPathPatterns("/**")
+                .order(++order);
 
         registry.addInterceptor(authenticateIntercept)
                 .addPathPatterns("/multiPhone/business/**")
-                .order(2);
+                .order(++order);
 
-        registry.addInterceptor(limitUserIntercept)
+        registry.addInterceptor(userBlacklistIntercept)
                 .addPathPatterns("/multiPhone/business/**")
-                .order(3);
+                .order(++order);
 
         registry.addInterceptor(verifyPermissionIntercept)
                 .addPathPatterns("/multiPhone/business/**")
-                .order(4);
+                .order(++order);
 
         WebMvcConfigurer.super.addInterceptors(registry);
     }

@@ -15,6 +15,5 @@ public class Access extends AccessMeta {
      * 身份标志
      */
     private LoginUser user;
-    private String requestId;
     private String ip;
 }

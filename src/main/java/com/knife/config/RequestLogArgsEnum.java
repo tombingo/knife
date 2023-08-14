@@ -15,7 +15,7 @@ public enum RequestLogArgsEnum {
     methodName,//运行的方法名
     url,//请求地址
     urlParams,//请求的url参数
-    createTime,//创建
+    createTime,//创建时间
     /********************************************细化的操作和数据****************************************************/
     operateTag,//操作模块
     operateType,//操作类型
