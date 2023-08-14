@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 /**
- * @Description: TODO
+ * 用户黑名单
  * @Author geey
  * @Date 2023/8/3 15:15
  * @Version 1.0
