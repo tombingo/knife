@@ -1,0 +1,25 @@
+# DataSource Config
+spring:
+  profiles:
+    active: dev
+---
+#dev环境
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3307/multiple_phone?characterEncoding=utf-8&useSSL=true&serverTimezone=GMT
+    username: root
+    password: euwieuwieuweuewu&&@#*@#^23!D
+    hikari:
+      maximum-pool-size: 50
+      minimum-idle: 20
+  redis:
+    #数据库索引
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password:
+---
