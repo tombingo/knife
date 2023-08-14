@@ -16,12 +16,12 @@ public @interface Operate {
     String description() default "";  // 操作说明
 
     /**
-     * 记录方法的参数值
+     * 记录执行方法时的参数值
      */
     boolean logMethodArgs() default  false;
 
     /**
-     * 记录结果
+     * 记录方法执行后的结果
      */
     boolean logResultData() default  false;
 }
