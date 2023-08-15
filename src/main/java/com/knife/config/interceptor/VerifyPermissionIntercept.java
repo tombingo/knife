@@ -10,11 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ * 推荐使用aop
  * 权限验证
  * @Author geey
  * @Date 2023/8/3 15:17
  * @Version 1.0
  */
+@Deprecated
 @Component
 public class VerifyPermissionIntercept implements HandlerInterceptor {
 
