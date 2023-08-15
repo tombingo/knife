@@ -1,6 +1,6 @@
 package com.knife.entity;
-import com.knife.mybaties.entity.CollectHead;
-import com.knife.mybaties.mapper.CollectHeadMapper;
+import com.knife.mybatis.entity.CollectHead;
+import com.knife.mybatis.mapper.CollectHeadMapper;
 import com.mybatisflex.core.query.QueryWrapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.knife.controller;
 
-import com.knife.mybaties.entity.CollectHead;
+import com.knife.mybatis.entity.CollectHead;
 import com.mybatisflex.core.BaseMapper;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;

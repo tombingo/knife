@@ -1,6 +1,6 @@
-package com.knife.mybaties.mapper;
+package com.knife.mybatis.mapper;
 
-import com.knife.mybaties.entity.CollectDetail;
+import com.knife.mybatis.entity.CollectDetail;
 import com.mybatisflex.core.BaseMapper;
 
 /**

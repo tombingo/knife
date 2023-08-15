@@ -1,7 +1,7 @@
-package com.knife.mybaties.mapper;
+package com.knife.mybatis.mapper;
 
 import com.mybatisflex.core.BaseMapper;
-import com.knife.mybaties.entity.CollectHead;
+import com.knife.mybatis.entity.CollectHead;
 
 /**
  *  映射层。

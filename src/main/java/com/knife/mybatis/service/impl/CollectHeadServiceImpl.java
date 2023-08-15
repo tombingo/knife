@@ -1,8 +1,8 @@
-package com.knife.mybaties.service.impl;
+package com.knife.mybatis.service.impl;
 
-import com.knife.mybaties.entity.CollectHead;
-import com.knife.mybaties.mapper.CollectHeadMapper;
-import com.knife.mybaties.service.CollectHeadService;
+import com.knife.mybatis.entity.CollectHead;
+import com.knife.mybatis.mapper.CollectHeadMapper;
+import com.knife.mybatis.service.CollectHeadService;
 import com.mybatisflex.spring.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

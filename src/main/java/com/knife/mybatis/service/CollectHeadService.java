@@ -1,7 +1,7 @@
-package com.knife.mybaties.service;
+package com.knife.mybatis.service;
 
 import com.mybatisflex.core.service.IService;
-import com.knife.mybaties.entity.CollectHead;
+import com.knife.mybatis.entity.CollectHead;
 
 /**
  *  服务层。
